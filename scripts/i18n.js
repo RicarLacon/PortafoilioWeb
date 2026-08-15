@@ -4,6 +4,7 @@ const translations = Object.freeze({
         "meta.description":
             "Portafolio web de Ricardo Murillo con información profesional, experiencia, proyectos y contacto.",
         "nav.menu": "Menú",
+        "nav.logoHome": "Ir al inicio",
         "nav.home": "Inicio",
         "nav.about": "Sobre mí",
         "nav.experience": "Experiencia",
@@ -30,6 +31,28 @@ const translations = Object.freeze({
             "Trabajo con una mentalidad pragmática: arquitectura simple cuando es suficiente, código legible y comunicación técnica directa para mantener claridad en cada etapa del proyecto.",
         "about.stack.title": "Stack principal",
         "about.stack.rest": "APIs REST",
+        "purpose.label": "Propósito profesional",
+        "purpose.title": "Mi objetivo y futuro",
+        "purpose.mission.title": "Misión",
+        "purpose.mission.description":
+            "Desarrollar código back-end de alta calidad para que sea fácil de usar y modificar.",
+        "purpose.vision.title": "Visión",
+        "purpose.vision.description":
+            "Programar extensos sistemas con alta calidad y escalabilidad en el ámbito web.",
+        "values.label": "Principios",
+        "values.title": "Valores personales",
+        "values.responsibility.title": "Responsabilidad",
+        "values.responsibility.description":
+            "Cumplir con los compromisos y asumir las consecuencias.",
+        "values.empathy.title": "Empatía",
+        "values.empathy.description":
+            "Conectarse con los sentimientos y necesidades de los demás.",
+        "values.honesty.title": "Honestidad",
+        "values.honesty.description":
+            "Elegir siempre decir la verdad, aunque sea difícil.",
+        "values.respect.title": "Respeto",
+        "values.respect.description":
+            "Reconocer y valorar la dignidad de las otras personas.",
         "experience.label": "Experiencia",
         "experience.title": "Áreas en las que aporto valor",
         "experience.backend.title": "Desarrollo backend",
@@ -109,6 +132,7 @@ const translations = Object.freeze({
         "meta.description":
             "Ricardo Murillo's professional portfolio featuring experience, selected projects, technical skills, and contact information.",
         "nav.menu": "Menu",
+        "nav.logoHome": "Go to home",
         "nav.home": "Home",
         "nav.about": "About me",
         "nav.experience": "Experience",
@@ -135,6 +159,28 @@ const translations = Object.freeze({
             "I take a pragmatic approach: simple architecture when it is enough, readable code, and direct technical communication to maintain clarity throughout every stage of a project.",
         "about.stack.title": "Core stack",
         "about.stack.rest": "REST APIs",
+        "purpose.label": "Professional purpose",
+        "purpose.title": "My goal and future",
+        "purpose.mission.title": "Mission",
+        "purpose.mission.description":
+            "Develop high-quality backend code that is easy to use and modify.",
+        "purpose.vision.title": "Vision",
+        "purpose.vision.description":
+            "Build extensive, high-quality, scalable systems for the web.",
+        "values.label": "Principles",
+        "values.title": "Personal values",
+        "values.responsibility.title": "Responsibility",
+        "values.responsibility.description":
+            "Fulfill commitments and take responsibility for the consequences.",
+        "values.empathy.title": "Empathy",
+        "values.empathy.description":
+            "Connect with other people's feelings and needs.",
+        "values.honesty.title": "Honesty",
+        "values.honesty.description":
+            "Always choose to tell the truth, even when it is difficult.",
+        "values.respect.title": "Respect",
+        "values.respect.description":
+            "Recognize and value the dignity of others.",
         "experience.label": "Experience",
         "experience.title": "Areas where I add value",
         "experience.backend.title": "Backend development",

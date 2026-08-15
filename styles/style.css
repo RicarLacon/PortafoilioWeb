@@ -81,11 +81,21 @@ ul {
     box-shadow: var(--shadow-soft);
 }
 
-.brand {
-    font-size: 1.25rem;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+.brand-logo {
+    flex: 0 0 auto;
+    display: block;
+    width: 3.25rem;
+    aspect-ratio: 1;
+    border-radius: 0.9rem;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(3, 3, 1, 0.32);
+}
+
+.brand-logo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .nav-links {
@@ -318,10 +328,25 @@ main {
 }
 
 .about-grid,
+.mission-vision-grid,
+.values-grid,
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
+}
+
+.about-grid,
+.projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mission-vision-grid,
+.values-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.value-card {
+    border-top: 3px solid var(--color-accent);
 }
 
 .card,
@@ -618,7 +643,20 @@ main {
     font-family: var(--font-base);
     font-weight: 800;
     box-shadow: 0 12px 30px rgba(3, 3, 1, 0.38);
+    animation: whatsapp-enter 600ms cubic-bezier(0.22, 1, 0.36, 1) 180ms backwards;
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+@keyframes whatsapp-enter {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 1rem, 0) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
 }
 
 .whatsapp-icon {
@@ -655,6 +693,50 @@ main {
     color: var(--color-text-muted);
 }
 
+/* Entrada progresiva al hacer scroll. Solo se activa cuando JavaScript está disponible. */
+.reveal-enabled .reveal-item {
+    opacity: 0;
+    transform: translate3d(0, 1.75rem, 0);
+    transition:
+        opacity 650ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+.reveal-enabled .reveal-item.reveal-from-left {
+    transform: translate3d(-1.75rem, 0, 0);
+}
+
+.reveal-enabled .reveal-item.reveal-from-right {
+    transform: translate3d(1.75rem, 0, 0);
+}
+
+.reveal-enabled .reveal-item.reveal-pop {
+    transform: translate3d(0, 1rem, 0) scale(0.96);
+}
+
+.reveal-enabled .reveal-item.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .whatsapp-button {
+        animation: none;
+    }
+
+    .reveal-enabled .reveal-item {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
 @media (max-width: 900px) {
     .navbar {
         flex-wrap: wrap;
@@ -669,6 +751,8 @@ main {
 
     .hero-content,
     .about-grid,
+    .mission-vision-grid,
+    .values-grid,
     .projects-grid,
     .contact-panel {
         grid-template-columns: 1fr;
@@ -677,7 +761,7 @@ main {
 
 @media (max-width: 720px) {
     .hero {
-        padding-top: 12rem;
+        padding-top: 15rem;
         padding-inline: 1rem;
     }
 
@@ -686,6 +770,10 @@ main {
         flex-direction: column;
         align-items: stretch;
         text-align: center;
+    }
+
+    .brand-logo {
+        align-self: flex-start;
     }
 
     .nav-links {

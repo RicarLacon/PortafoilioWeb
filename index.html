@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio web Ricardo</title>
-    <link rel="icon" href="./frontend/img/favicon.png" type="image/png">
+    <link rel="icon" href="./frontend/img/favicon-rounded.png" type="image/png">
     <meta
         id="meta-description"
         name="description"
@@ -28,13 +28,27 @@
     <script src="./scripts/i18n.js" defer></script>
     <script src="./scripts/contact.js" defer></script>
     <script src="./scripts/whatsapp.js" defer></script>
+    <script src="./scripts/animations.js" defer></script>
 </head>
 <body>
     <a id="inicio"></a>
 
     <header class="hero">
         <nav class="navbar">
-            <div class="brand" data-i18n="nav.menu">Menú</div>
+            <a
+                class="brand-logo"
+                href="#inicio"
+                aria-label="Ir al inicio"
+                data-i18n-aria-label="nav.logoHome"
+            >
+                <img
+                    src="./frontend/img/logo.png"
+                    alt=""
+                    width="52"
+                    height="52"
+                    aria-hidden="true"
+                >
+            </a>
             <div class="nav-links">
                 <a href="#inicio" data-i18n="nav.home">Inicio</a>
                 <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
@@ -129,6 +143,60 @@
                         <li data-i18n="about.stack.rest">APIs REST</li>
                         <li>Git</li>
                     </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="mision-vision" aria-labelledby="mision-vision-title">
+            <div class="section-heading">
+                <p class="section-label" data-i18n="purpose.label">Propósito profesional</p>
+                <h2 id="mision-vision-title" data-i18n="purpose.title">Objetivos y futuro</h2>
+            </div>
+            <div class="mission-vision-grid">
+                <article class="card">
+                    <h3 data-i18n="purpose.mission.title">Misión</h3>
+                    <p data-i18n="purpose.mission.description">
+                        Desarrollar código back-end de alta calidad para que sea fácil de usar y modificar.
+                    </p>
+                </article>
+                <article class="card">
+                    <h3 data-i18n="purpose.vision.title">Visión</h3>
+                    <p data-i18n="purpose.vision.description">
+                        Programar extensos sistemas con alta calidad y escalabilidad en el ámbito web.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section section-highlight" id="valores" aria-labelledby="valores-title">
+            <div class="section-heading">
+                <p class="section-label" data-i18n="values.label">Principios</p>
+                <h2 id="valores-title" data-i18n="values.title">Valores personales</h2>
+            </div>
+            <div class="values-grid">
+                <article class="card value-card">
+                    <h3 data-i18n="values.responsibility.title">Responsabilidad</h3>
+                    <p data-i18n="values.responsibility.description">
+                        Cumplir con los compromisos y asumir las consecuencias.
+                    </p>
+                </article>
+                <article class="card value-card">
+                    <h3 data-i18n="values.empathy.title">Empatía</h3>
+                    <p data-i18n="values.empathy.description">
+                        Conectarse con los sentimientos y necesidades de los demás.
+                    </p>
+                </article>
+                <article class="card value-card">
+                    <h3 data-i18n="values.honesty.title">Honestidad</h3>
+                    <p data-i18n="values.honesty.description">
+                        Elegir siempre decir la verdad, aunque sea difícil.
+                    </p>
+                </article>
+                <article class="card value-card">
+                    <h3 data-i18n="values.respect.title">Respeto</h3>
+                    <p data-i18n="values.respect.description">
+                        Reconocer y valorar la dignidad de las otras personas.
+                    </p>
                 </article>
             </div>
         </section>
