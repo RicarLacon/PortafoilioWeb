@@ -86,7 +86,7 @@ const translations = Object.freeze({
         "contact.label": "Contacto",
         "contact.title": "Conversemos",
         "contact.kicker": "¿Desea conversar sobre una oportunidad?",
-        "contact.heading": "Hablemos sobre cómo puedo aportar a su equipo.",
+        "contact.heading": "Hablemos sobre cómo puedo y podría aportar a su equipo.",
         "contact.description":
             "Complete el formulario y responderé a su correo. También puede contactarme directamente por estos canales.",
         "contact.email": "Enviar un correo",
@@ -214,7 +214,7 @@ const translations = Object.freeze({
         "contact.label": "Contact",
         "contact.title": "Let's connect",
         "contact.kicker": "Would you like to discuss an opportunity?",
-        "contact.heading": "Let's talk about how I can contribute to your team.",
+        "contact.heading": "Let's talk about how I can and could contribute to your team.",
         "contact.description":
             "Complete the form and I will reply by email. You can also contact me directly through these channels.",
         "contact.email": "Send an email",
