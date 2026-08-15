@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio web</title>
+    <title>Portafolio web Ricardo</title>
+    <link rel="icon" href="./frontend/img/favicon.png" type="image/png">
     <meta
+        id="meta-description"
         name="description"
         content="Portafolio web singlepage con información profesional, experiencia, proyectos y contacto."
     >
@@ -14,44 +16,80 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    >
     <link rel="stylesheet" href="./styles/style.css">
+    <script
+        src="https://cdn.jsdelivr.net/npm/just-validate@4.3.0/dist/just-validate.production.min.js"
+        defer
+    ></script>
+    <script src="./scripts/i18n.js" defer></script>
+    <script src="./scripts/contact.js" defer></script>
+    <script src="./scripts/whatsapp.js" defer></script>
 </head>
 <body>
     <a id="inicio"></a>
 
     <header class="hero">
         <nav class="navbar">
-            <div class="brand">Portafolio</div>
+            <div class="brand" data-i18n="nav.menu">Menú</div>
             <div class="nav-links">
-                <a href="#inicio">Inicio</a>
-                <a href="#sobre-mi">Sobre mí</a>
-                <a href="#experiencia">Experiencia</a>
-                <a href="#proyectos">Proyectos</a>
-                <a href="#contacto">Contacto</a>
+                <a href="#inicio" data-i18n="nav.home">Inicio</a>
+                <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+                <a href="#experiencia" data-i18n="nav.experience">Experiencia</a>
+                <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+                <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+            </div>
+            <div class="nav-actions">
+                <a
+                    class="cv-download"
+                    id="cv-download"
+                    href="/api/cv/es"
+                    download="Ricardo-Murillo-CV-ES.pdf"
+                    data-i18n="nav.downloadCv"
+                >Descargar CV</a>
+                <div class="language-control">
+                    <span class="language-code" aria-hidden="true">ES</span>
+                    <label class="language-switch" for="language-toggle">
+                        <input
+                            id="language-toggle"
+                            type="checkbox"
+                            role="switch"
+                            aria-label="Cambiar el sitio a inglés"
+                        >
+                        <span class="switch-track" aria-hidden="true">
+                            <span class="switch-thumb"></span>
+                        </span>
+                    </label>
+                    <span class="language-code" aria-hidden="true">EN</span>
+                </div>
             </div>
         </nav>
 
         <div class="hero-content">
             <div class="hero-copy">
-                <p class="eyebrow">Desarrollador backend</p>
-                <h1>Hola, soy Ricardo.</h1>
-                <p class="hero-text">
+                <p class="eyebrow" data-i18n="hero.eyebrow">Desarrollador backend</p>
+                <h1 data-i18n="hero.title">Hola, soy Ricardo.</h1>
+                <p class="hero-text" data-i18n="hero.description">
                     Soy un desarrollador con experiencia en JavaScript, C#, .NET y Java. Este
                     espacio resume mi perfil, mi enfoque de trabajo y algunos proyectos que
                     representan mi forma de construir software.
                 </p>
                 <div class="hero-actions">
-                    <a class="button button-primary" href="#proyectos">Ver proyectos</a>
-                    <a class="button button-secondary" href="#contacto">Contactarme</a>
+                    <a class="button button-primary" href="#proyectos" data-i18n="hero.projects">Ver proyectos</a>
+                    <a class="button button-secondary" href="#contacto" data-i18n="hero.contact">Contactarme</a>
                 </div>
             </div>
 
-            <div class="hero-media" aria-label="Foto de perfil">
+            <div class="hero-media" aria-label="Foto de perfil" data-i18n-aria-label="hero.photoLabel">
                 <div class="hero-image-placeholder">
                     <img
                         class="hero-image"
                         src="./frontend/img/yo.jpeg"
                         alt="Foto de Ricardo Murillo Picado"
+                        data-i18n-alt="hero.photoAlt"
                     >
                 </div>
             </div>
@@ -61,34 +99,34 @@
     <main>
         <section class="section section-highlight" id="sobre-mi">
             <div class="section-heading">
-                <p class="section-label">Sobre mí</p>
-                <h2>Perfil profesional</h2>
+                <p class="section-label" data-i18n="about.label">Sobre mí</p>
+                <h2 data-i18n="about.title">Perfil profesional</h2>
             </div>
             <div class="about-grid">
                 <article class="card">
-                    <h3>Quién soy</h3>
-                    <p>
+                    <h3 data-i18n="about.who.title">Quién soy</h3>
+                    <p data-i18n="about.who.description">
                         Me enfoco en el desarrollo backend y en el diseño de aplicaciones que
                         sean mantenibles, seguras y fáciles de escalar. Priorizo decisiones
                         técnicas coherentes con el problema real del negocio.
                     </p>
                 </article>
                 <article class="card">
-                    <h3>Cómo trabajo</h3>
-                    <p>
-                        Trabajo con una mentalidad pragmática: arquitectura simple cuando es
-                        suficiente, código legible y una comunicación técnica directa para
+                    <h3 data-i18n="about.work.title">Cómo trabajo</h3>
+                    <p data-i18n="about.work.description">
+                        Trabajo con una mentalidad pragmática: Arquitectura simple cuando es
+                        suficiente con código legible y una comunicación técnica directa para
                         mantener claridad en cada etapa del proyecto.
                     </p>
                 </article>
                 <article class="card">
-                    <h3>Stack principal</h3>
+                    <h3 data-i18n="about.stack.title">Stack principal</h3>
                     <ul class="tag-list">
                         <li>JavaScript</li>
                         <li>C#</li>
                         <li>.NET</li>
                         <li>Java</li>
-                        <li>APIs REST</li>
+                        <li data-i18n="about.stack.rest">APIs REST</li>
                         <li>Git</li>
                     </ul>
                 </article>
@@ -97,31 +135,31 @@
 
         <section class="section" id="experiencia">
             <div class="section-heading">
-                <p class="section-label">Experiencia</p>
-                <h2>Áreas en las que aporto valor</h2>
+                <p class="section-label" data-i18n="experience.label">Experiencia</p>
+                <h2 data-i18n="experience.title">Áreas en las que aporto valor</h2>
             </div>
             <div class="timeline">
                 <article class="card timeline-item">
                     <span class="timeline-marker"></span>
-                    <h3>Desarrollo backend</h3>
-                    <p>
-                        Diseño y construcción de servicios, lógica de negocio y APIs para
+                    <h3 data-i18n="experience.backend.title">Desarrollo backend</h3>
+                    <p data-i18n="experience.backend.description">
+                        Diseño y construyo servicios, lógica de negocio y APIs para
                         aplicaciones web con foco en estabilidad y mantenibilidad.
                     </p>
                 </article>
                 <article class="card timeline-item">
                     <span class="timeline-marker"></span>
-                    <h3>Integración de datos</h3>
-                    <p>
-                        Modelado y consumo de datos con SQL y servicios conectados, cuidando
+                    <h3 data-i18n="experience.data.title">Integración de datos</h3>
+                    <p data-i18n="experience.data.description">
+                        Realizo modelado y consumo de datos con SQL y servicios conectados, cuidando
                         consistencia, rendimiento y trazabilidad.
                     </p>
                 </article>
                 <article class="card timeline-item">
                     <span class="timeline-marker"></span>
-                    <h3>Colaboración técnica</h3>
-                    <p>
-                        Organización de trabajo, revisión de requerimientos y ejecución con
+                    <h3 data-i18n="experience.collaboration.title">Colaboración técnica</h3>
+                    <p data-i18n="experience.collaboration.description">
+                        Procuro siempre una buena organización de trabajo, revisión de requerimientos y ejecución con
                         criterios claros para reducir ambigüedad y acelerar entregas.
                     </p>
                 </article>
@@ -130,8 +168,8 @@
 
         <section class="section section-highlight" id="proyectos">
             <div class="section-heading">
-                <p class="section-label">Proyectos</p>
-                <h2>Trabajo seleccionado</h2>
+                <p class="section-label" data-i18n="projects.label">Proyectos</p>
+                <h2 data-i18n="projects.title">Trabajos seleccionados</h2>
             </div>
             <div class="projects-grid">
                 <a
@@ -140,27 +178,33 @@
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Ver repositorio del proyecto de inventario"
+                    data-i18n-aria-label="projects.warehouse.ariaLabel"
+                    data-i18n-cta="projects.repository"
+                    data-cta="Ver repositorio →"
                 >
-                    <p class="project-type">API y lógica de negocio</p>
-                    <h3>Gestor de procesos de inventario en un almacén</h3>
-                    <p>
-                        Este proyecto consiste en el desarrollo de una solución integral para
+                    <p class="project-type" data-i18n="projects.warehouse.type">API y lógica de negocio</p>
+                    <h3 data-i18n="projects.warehouse.title">Gestor de procesos almacén</h3>
+                    <p data-i18n="projects.warehouse.description">
+                        Efectué la creación de una solución para
                         gestionar los procesos de inventario en un almacén, optimizando el
-                        control de stock y la eficiencia operativa.
+                        control de stock y la eficiencia operativa, por medio de tecnologías como Java, Spring Boot y MySQL.
                     </p>
                 </a>
                 <a
                     class="project-card project-link"
-                    href="https://github.com/RicarLacon?tab=repositories"
+                    href="https://github.com/MarianoUlloa/PS2-PuraCrypto"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Ver repositorio del proyecto de integración con base de datos"
+                    data-i18n-aria-label="projects.crypto.ariaLabel"
+                    data-i18n-cta="projects.repository"
+                    data-cta="Ver repositorio →"
                 >
-                    <p class="project-type">Servicios y datos</p>
-                    <h3>Integración con base de datos</h3>
-                    <p>
-                        Desarrollo de endpoints y consultas estructuradas para soportar
-                        operaciones críticas con tiempos de respuesta consistentes.
+                    <p class="project-type" data-i18n="projects.crypto.type">Servicios y datos</p>
+                    <h3 data-i18n="projects.crypto.title">Comercio con Cripto</h3>
+                    <p data-i18n="projects.crypto.description">
+                        Este es un trabajo grupal en el que desarrollé la lógica de negocio y la integración con la base de datos para
+                        una aplicación de comercio de criptomonedas, utilizando tecnologías como C#, .NET, JavaScript y SQL Server.
                     </p>
                 </a>
                 <a
@@ -169,12 +213,15 @@
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Ver repositorio del proyecto de portafolio"
+                    data-i18n-aria-label="projects.portfolio.ariaLabel"
+                    data-i18n-cta="projects.repository"
+                    data-cta="Ver repositorio →"
                 >
-                    <p class="project-type">Portafolio personal</p>
-                    <h3>Presentación singlepage</h3>
-                    <p>
-                        Sitio diseñado para comunicar perfil profesional, stack técnico y
-                        experiencia de forma directa dentro de una sola página.
+                    <p class="project-type" data-i18n="projects.portfolio.type">Portafolio personal</p>
+                    <h3 data-i18n="projects.portfolio.title">Presentación singlepage</h3>
+                    <p data-i18n="projects.portfolio.description">
+                        Este es un sitio que diseñe y programé para comunicar perfil profesional, stack técnico y
+                        experiencia de forma directa dentro de una sola página con el uso de tecnologías como HTML, CSS y JavaScript.
                     </p>
                 </a>
             </div>
@@ -182,25 +229,128 @@
 
         <section class="section" id="contacto">
             <div class="section-heading">
-                <p class="section-label">Contacto</p>
-                <h2>Conversemos</h2>
+                <p class="section-label" data-i18n="contact.label">Contacto</p>
+                <h2 data-i18n="contact.title">Conversemos</h2>
             </div>
             <div class="contact-panel">
-                <p>
-                    Si estás buscando a alguien para construir o mejorar una solución web,
-                    puedes usar esta sección como punto de contacto para próximos pasos.
-                </p>
-                <div class="contact-links">
-                    <a href="mailto:ricardomurillopicado210607@gmail.com">ricardomurillopicado210607@gmail.com</a>
-                    <a href="https://www.linkedin.com/in/ricardo-murillo-picado-a3a582378/" target="_blank" rel="noreferrer">LinkedIn</a>
-                    <a href="https://github.com/RicarLacon" target="_blank" rel="noreferrer">GitHub</a>
+                <div class="contact-copy">
+                    <p class="contact-kicker" data-i18n="contact.kicker">¿Desea conversar sobre una oportunidad?</p>
+                    <h3 data-i18n="contact.heading">Hablemos sobre cómo puedo aportar a su equipo.</h3>
+                    <p data-i18n="contact.description">
+                        Complete el formulario y responderé a su correo. También puede
+                        contactarme directamente por estos canales.
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:ricardomurillopicado210607@gmail.com" data-i18n="contact.email">Enviar un correo</a>
+                        <a href="https://www.linkedin.com/in/ricardo-murillo-picado-a3a582378/" target="_blank" rel="noreferrer">LinkedIn</a>
+                        <a href="https://github.com/RicarLacon" target="_blank" rel="noreferrer">GitHub</a>
+                    </div>
                 </div>
+
+                <form
+                    class="contact-form"
+                    id="contact-form"
+                    action="https://formsubmit.co/ricardomurillopicado210607@gmail.com"
+                    method="POST"
+                    enctype="multipart/form-data"
+                >
+                    <input type="hidden" name="_subject" value="Nuevo mensaje desde el portafolio" data-i18n-value="form.subjectValue">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input
+                        class="honeypot"
+                        type="text"
+                        name="_honey"
+                        tabindex="-1"
+                        autocomplete="off"
+                        aria-hidden="true"
+                    >
+
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="nombre" data-i18n="form.name.label">Nombre</label>
+                            <input
+                                id="nombre"
+                                name="nombre"
+                                type="text"
+                                placeholder="Su nombre"
+                                data-i18n-placeholder="form.name.placeholder"
+                                autocomplete="name"
+                                minlength="2"
+                                maxlength="80"
+                                required
+                            >
+                        </div>
+                        <div class="form-field">
+                            <label for="correo" data-i18n="form.email.label">Correo electrónico</label>
+                            <input
+                                id="correo"
+                                name="email"
+                                type="email"
+                                placeholder="nombre@correo.com"
+                                data-i18n-placeholder="form.email.placeholder"
+                                autocomplete="email"
+                                maxlength="120"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="asunto" data-i18n="form.topic.label">Asunto</label>
+                        <input
+                            id="asunto"
+                            name="asunto"
+                            type="text"
+                            placeholder="¿En qué puedo ayudarle?"
+                            data-i18n-placeholder="form.topic.placeholder"
+                            minlength="3"
+                            maxlength="120"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="mensaje" data-i18n="form.message.label">Mensaje</label>
+                        <textarea
+                            id="mensaje"
+                            name="mensaje"
+                            rows="6"
+                            placeholder="Mensaje a enviar"
+                            data-i18n-placeholder="form.message.placeholder"
+                            minlength="10"
+                            maxlength="1500"
+                            required
+                        ></textarea>
+                        <span class="field-hint" data-i18n="form.message.hint">Máximo 1500 caracteres.</span>
+                    </div>
+
+                    <button class="button button-primary form-submit" type="submit">
+                        <span class="button-label" data-i18n="form.submit">Enviar mensaje</span>
+                        <span class="button-loading" aria-hidden="true" data-i18n="form.sending">Enviando…</span>
+                    </button>
+                    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                </form>
             </div>
         </section>
     </main>
 
+    <a
+        class="whatsapp-button"
+        href="https://wa.me/50684562629"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Abrir chat de WhatsApp con Ricardo en una pestaña nueva"
+        data-i18n-aria-label="whatsapp.ariaLabel"
+        title="Abrir chat en WhatsApp"
+        data-i18n-title="whatsapp.title"
+    >
+        <i class="bi bi-whatsapp whatsapp-icon" aria-hidden="true"></i>
+        <span data-i18n="whatsapp.label">WhatsApp</span>
+    </a>
+
     <footer class="footer">
-        <p>© 2026 Ricardo Murillo Picado.</p>
+        <p data-i18n="footer.copyright">© 2026 Ricardo Murillo Picado.</p>
     </footer>
 </body>
 </html>

@@ -82,7 +82,7 @@ ul {
 }
 
 .brand {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 800;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -90,6 +90,7 @@ ul {
 
 .nav-links {
     display: flex;
+    flex: 1;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
@@ -107,6 +108,96 @@ ul {
     background: var(--color-accent);
     color: var(--color-text);
     transform: translateY(-1px);
+}
+
+.nav-actions,
+.language-control {
+    display: flex;
+    align-items: center;
+}
+
+.nav-actions {
+    gap: 0.9rem;
+}
+
+.cv-download {
+    padding: 0.65rem 1rem;
+    border: 1px solid rgba(245, 247, 255, 0.22);
+    border-radius: 999px;
+    background: var(--color-accent);
+    font-family: var(--font-base);
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.cv-download:hover,
+.cv-download:focus-visible {
+    border-color: rgba(245, 247, 255, 0.42);
+    background: #182c72;
+    transform: translateY(-1px);
+}
+
+.language-control {
+    gap: 0.4rem;
+    font-family: var(--font-base);
+}
+
+.language-code {
+    color: var(--color-text-muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+}
+
+.language-switch {
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.language-switch input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.switch-track {
+    position: relative;
+    width: 3rem;
+    height: 1.65rem;
+    border: 1px solid rgba(245, 247, 255, 0.28);
+    border-radius: 999px;
+    background: rgba(245, 247, 255, 0.12);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.switch-thumb {
+    position: absolute;
+    top: 0.2rem;
+    left: 0.2rem;
+    width: 1.15rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--color-text);
+    box-shadow: 0 2px 6px rgba(3, 3, 1, 0.35);
+    transition: transform 0.2s ease;
+}
+
+.language-switch input:checked + .switch-track {
+    border-color: rgba(117, 230, 173, 0.6);
+    background: #176844;
+}
+
+.language-switch input:checked + .switch-track .switch-thumb {
+    transform: translateX(1.35rem);
+}
+
+.language-switch input:focus-visible + .switch-track {
+    outline: 3px solid var(--color-text);
+    outline-offset: 3px;
 }
 
 .hero-content {
@@ -140,7 +231,7 @@ ul {
 
 .hero-text {
     max-width: 42rem;
-    font-size: 1.08rem;
+    font-size: 1.25rem;
     color: var(--color-text-muted);
 }
 
@@ -246,7 +337,12 @@ main {
 .card h3,
 .project-card h3 {
     margin-bottom: 0.8rem;
-    font-size: 1.25rem;
+    font-size: 1.8rem;
+}
+
+.card p,
+.timeline-item p{
+    font-size: 1.2rem;
 }
 
 .tag-list {
@@ -309,10 +405,11 @@ main {
     gap: 0.8rem;
     min-height: 100%;
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    font-size: 1.2rem;
 }
 
 .project-link::after {
-    content: "Ver repositorio →";
+    content: attr(data-cta);
     margin-top: auto;
     color: var(--color-text-muted);
     font-size: 0.95rem;
@@ -327,7 +424,29 @@ main {
 
 .contact-panel {
     display: grid;
-    gap: 1.5rem;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+    padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.contact-copy {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.contact-kicker {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.contact-copy h3 {
+    max-width: 13ch;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.1;
 }
 
 .contact-links {
@@ -338,9 +457,181 @@ main {
 
 .contact-links a {
     padding: 0.85rem 1.1rem;
+    border: 1px solid transparent;
     border-radius: 999px;
     background: var(--color-accent);
     font-weight: 600;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-links a:hover,
+.contact-links a:focus-visible {
+    border-color: rgba(245, 247, 255, 0.32);
+    transform: translateY(-2px);
+}
+
+.contact-form {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.form-field {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.form-field label {
+    font-weight: 700;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    border: 1px solid rgba(245, 247, 255, 0.2);
+    border-radius: 0.85rem;
+    outline: none;
+    background: rgba(245, 247, 255, 0.07);
+    color: var(--color-text);
+    font: inherit;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-field input {
+    min-height: 3.2rem;
+    padding: 0.75rem 1rem;
+}
+
+.form-field textarea {
+    min-height: 10rem;
+    padding: 0.9rem 1rem;
+    resize: vertical;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: rgba(204, 211, 255, 0.66);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    border-color: var(--color-text-muted);
+    background: rgba(245, 247, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(204, 211, 255, 0.14);
+}
+
+.form-field :is(input, textarea).is-invalid {
+    border-color: #ff9f9f;
+}
+
+.form-field :is(input, textarea).is-valid {
+    border-color: #75e6ad;
+}
+
+.field-error {
+    color: #ffc0c0;
+    font-family: var(--font-base);
+    font-size: 0.88rem;
+}
+
+.field-hint {
+    color: var(--color-text-muted);
+    font-family: var(--font-base);
+    font-size: 0.82rem;
+}
+
+.form-submit {
+    justify-self: start;
+    border-color: rgba(245, 247, 255, 0.12);
+    cursor: pointer;
+    font: inherit;
+}
+
+.form-submit:disabled {
+    cursor: wait;
+    opacity: 0.72;
+}
+
+.button-loading,
+.form-submit.is-loading .button-label {
+    display: none;
+}
+
+.form-submit.is-loading .button-loading {
+    display: inline;
+}
+
+.form-status {
+    min-height: 1.6em;
+    font-family: var(--font-base);
+    font-weight: 600;
+}
+
+.form-status-success {
+    color: #75e6ad;
+}
+
+.form-status-error {
+    color: #ffc0c0;
+}
+
+.form-status-pending {
+    color: var(--color-text-muted);
+}
+
+.whatsapp-button {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    right: calc(1.25rem + env(safe-area-inset-right));
+    bottom: calc(1.25rem + env(safe-area-inset-bottom));
+    z-index: 20;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.65rem 1rem 0.65rem 0.7rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    background: #25d366;
+    color: #061b0e;
+    font-family: var(--font-base);
+    font-weight: 800;
+    box-shadow: 0 12px 30px rgba(3, 3, 1, 0.38);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 2rem;
+    color: #ffffff;
+    font-size: 1.8rem;
+    line-height: 1;
+    filter: drop-shadow(0 2px 3px rgba(3, 3, 1, 0.24));
+}
+
+.whatsapp-button:hover {
+    transform: translateY(-3px);
+    background: #42df7c;
+    box-shadow: 0 16px 36px rgba(3, 3, 1, 0.46);
+}
+
+.whatsapp-button:focus-visible {
+    outline: 3px solid var(--color-text);
+    outline-offset: 4px;
+}
+
+.honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
 
 .footer {
@@ -350,19 +641,27 @@ main {
 
 @media (max-width: 900px) {
     .navbar {
+        flex-wrap: wrap;
         width: min(calc(100% - 2rem), var(--max-width));
         border-radius: 1.5rem;
     }
 
+    .nav-links {
+        order: 3;
+        flex-basis: 100%;
+    }
+
     .hero-content,
     .about-grid,
-    .projects-grid {
+    .projects-grid,
+    .contact-panel {
         grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 720px) {
     .hero {
+        padding-top: 12rem;
         padding-inline: 1rem;
     }
 
@@ -375,6 +674,10 @@ main {
 
     .nav-links {
         gap: 0.5rem;
+    }
+
+    .nav-actions {
+        justify-content: center;
     }
 
     .hero-content {
@@ -392,5 +695,20 @@ main {
 
     .timeline-item {
         padding-left: 2.6rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-submit {
+        width: 100%;
+    }
+
+    .whatsapp-button {
+        right: 1rem;
+        bottom: 1rem;
+        right: calc(1rem + env(safe-area-inset-right));
+        bottom: calc(1rem + env(safe-area-inset-bottom));
     }
 }
