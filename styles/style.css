@@ -378,7 +378,23 @@ main {
 
 .timeline-item {
     position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(150px, 220px);
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 3rem);
     padding-left: 3rem;
+}
+
+.timeline-copy {
+    min-width: 0;
+}
+
+.timeline-illustration {
+    display: block;
+    width: min(100%, 210px);
+    max-height: 190px;
+    justify-self: end;
+    object-fit: contain;
 }
 
 .timeline-marker {
@@ -694,7 +710,14 @@ main {
     }
 
     .timeline-item {
+        grid-template-columns: 1fr;
         padding-left: 2.6rem;
+    }
+
+    .timeline-illustration {
+        width: min(100%, 190px);
+        max-height: 170px;
+        justify-self: center;
     }
 
     .form-row {

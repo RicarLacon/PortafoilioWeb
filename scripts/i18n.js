@@ -46,18 +46,18 @@ const translations = Object.freeze({
         "projects.repository": "Ver repositorio →",
         "projects.warehouse.ariaLabel": "Ver repositorio del proyecto de inventario",
         "projects.warehouse.type": "API y lógica de negocio",
-        "projects.warehouse.title": "Gestor de procesos de almacén",
+        "projects.warehouse.title": "Gestor de Procesos de Almacén",
         "projects.warehouse.description":
             "Creé una solución para gestionar los procesos de inventario de un almacén, optimizando el control de existencias y la eficiencia operativa con Java, Spring Boot y MySQL.",
         "projects.crypto.ariaLabel":
             "Ver repositorio del proyecto de comercio de criptomonedas",
         "projects.crypto.type": "Servicios y datos",
-        "projects.crypto.title": "Comercio con criptomonedas",
+        "projects.crypto.title": "Comercio con Criptomonedas",
         "projects.crypto.description":
             "En este proyecto grupal desarrollé la lógica de negocio y la integración con la base de datos para una aplicación de comercio de criptomonedas con C#, .NET, JavaScript y SQL Server.",
         "projects.portfolio.ariaLabel": "Ver repositorio del proyecto de portafolio",
         "projects.portfolio.type": "Portafolio personal",
-        "projects.portfolio.title": "Presentación de una sola página",
+        "projects.portfolio.title": "Presentación Singlepage",
         "projects.portfolio.description":
             "Diseñé y programé este sitio para comunicar mi perfil profesional, stack técnico y experiencia de forma directa mediante HTML, CSS, JavaScript, C# y .NET.",
         "contact.label": "Contacto",
@@ -212,6 +212,16 @@ const translations = Object.freeze({
 
 const supportedLanguages = new Set(Object.keys(translations));
 const languageStorageKey = "portfolio-language";
+const cvFiles = Object.freeze({
+    es: Object.freeze({
+        path: "./frontend/CV/Imagen web ES.pdf",
+        downloadName: "Ricardo-Murillo-CV-ES.pdf",
+    }),
+    en: Object.freeze({
+        path: "./frontend/CV/Imagen web ENG.docx.pdf",
+        downloadName: "Ricardo-Murillo-CV-EN.pdf",
+    }),
+});
 
 const getStoredLanguage = () => {
     try {
@@ -282,9 +292,9 @@ const applyTranslations = () => {
 
     const cvDownload = document.querySelector("#cv-download");
     if (cvDownload) {
-        const languageCode = currentLanguage.toUpperCase();
-        cvDownload.href = `/api/cv/${currentLanguage}`;
-        cvDownload.download = `Ricardo-Murillo-CV-${languageCode}.pdf`;
+        const selectedCv = cvFiles[currentLanguage] ?? cvFiles.es;
+        cvDownload.href = encodeURI(selectedCv.path);
+        cvDownload.download = selectedCv.downloadName;
     }
 
     const formStatus = document.querySelector("#form-status");
